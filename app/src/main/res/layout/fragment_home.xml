@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Tiêu đề "Project Plan" -->
+    <TextView
+        android:id="@+id/text_project_plan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Project Plan"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Tiêu đề cột -->
+    <LinearLayout
+        android:id="@+id/linearLayoutHeaders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/text_project_plan"
+        android:layout_marginTop="12dp"
+        android:background="@color/lightGray">
+
+        <!-- Cột tiêu đề: TASK NAME -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="TASK NAME"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingEnd="16dp" />
+
+        <!-- Cột tiêu đề: Assignee và Start Date -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Assignee"
+                android:textSize="14sp"
+                android:textColor="@color/blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start Date"
+                android:textSize="14sp"
+                android:textColor="@color/yellow" />
+        </LinearLayout>
+
+        <!-- Cột tiêu đề: Estimate Day và End Date -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/estimate_day_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estimate Day"
+                android:textSize="14sp"
+                android:textColor="@color/green" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="End Date"
+                android:textSize="14sp"
+                android:textColor="@color/yellow" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!-- RecyclerView để hiển thị danh sách các DevTask -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTasks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutHeaders"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <!-- Nút Floating Action Button để thêm nhiệm vụ mới -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="Add Task"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:backgroundTint="@color/fab_pink"
+        app:tint="@color/white" />
+</androidx.constraintlayout.widget.ConstraintLayout>

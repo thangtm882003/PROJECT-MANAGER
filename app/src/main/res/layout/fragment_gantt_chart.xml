@@ -1,0 +1,74 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Date Picker Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+      >
+
+        <Button
+            android:id="@+id/startDatePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Date : Today"
+            android:drawableLeft="@drawable/ic_baseline_calendar_month_24"
+            android:padding="8dp"/>
+
+        <Button
+            android:id="@+id/endDatePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End Date : Today + 1"
+            android:drawableLeft="@drawable/ic_baseline_calendar_month_24"
+            android:padding="8dp"
+            android:layout_marginStart="0dp"/>
+    </LinearLayout>
+
+    <!-- Gantt Chart Task List -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal">
+
+            <TableLayout
+                android:id="@+id/taskTable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1"
+                android:background="@color/white">
+
+                <!-- Table Header -->
+                <TableRow
+                    android:id="@+id/tableHeader">
+
+                    <TextView
+                        android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Task Name"
+                    android:background="@color/white"
+                    android:textColor="@android:color/black"/>
+
+                    <!-- Dynamic Date columns will be added here -->
+                      </TableRow>
+
+                <!-- Rows for tasks will be added programmatically -->
+            </TableLayout>
+
+        </HorizontalScrollView>
+
+    </ScrollView>
+</LinearLayout>
